@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Olateam Bakery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="auth-page">
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">Olateam.com</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="breads.html" class="nav-link">BREADS</a>
+                <a href="cakes.html" class="nav-link">CAKES</a>
+                <a href="pastries.html" class="nav-link">PASTRIES</a>
+                <a href="story.html" class="nav-link">OUR STORY</a>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
+                <a href="signup.html" class="cta-btn secondary">Sign Up</a>
+            </div>
+        </header>
+
+        <main class="auth-main">
+            <div class="auth-card glass">
+                <div class="auth-header">
+                    <h1>Welcome Back</h1>
+                    <p>Enter your details to access your account</p>
+                </div>
+
+                <form id="loginForm" class="auth-form" novalidate>
+                    <div class="form-group floating">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email Address</label>
+                        <span class="error-msg">Please enter a valid email address.</span>
+                    </div>
+
+                    <div class="form-group floating">
+                        <div class="password-wrapper">
+                            <input type="password" id="password" placeholder=" " required>
+                            <label for="password">Password</label>
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-msg">Password must be at least 8 characters.</span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="cta-btn primary full-width">Sign In</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="signup.html">Create one for free</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

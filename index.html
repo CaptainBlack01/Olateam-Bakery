@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frosty Burst | Delicious Ice Cream</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">Olateam.com</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">HOME</a>
+                <a href="breads.html" class="nav-link">BREADS</a>
+                <a href="cakes.html" class="nav-link">CAKES</a>
+                <a href="pastries.html" class="nav-link">PASTRIES</a>
+                <a href="story.html" class="nav-link">OUR STORY</a>
+                <!-- Mobile only links -->
+                <a href="login.html" class="nav-link mobile-only">LOGIN</a>
+                <a href="signup.html" class="nav-link mobile-only">SIGN UP</a>
+            </nav>
+            <div class="header-actions">
+                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
+                <button class="icon-btn" aria-label="Cart">
+                    <i data-lucide="shopping-bag"></i>
+                </button>
+                <div class="auth-actions desktop-only">
+                    <a href="login.html" class="nav-link">Login</a>
+                    <a href="signup.html" class="cta-btn secondary">Sign Up</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero centered">
+                <div class="hero-content">
+                    <h1 class="hero-title">Golden <br> Crust</h1>
+                    <div class="hero-character-container">
+                        <!-- High quality Artisanal Bread Image -->
+                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=2070&auto=format&fit=crop"
+                            alt="Artisanal Bread" class="hero-img">
+                        <div class="decoration dec-1">+</div>
+                        <div class="decoration dec-2">+</div>
+                        <div class="decoration dec-3">
+                            <span class="rating">4.9</span>
+                            <span class="sub">since 1998</span>
+                        </div>
+                    </div>
+                    <div class="hero-details">
+                        <p class="hero-text">Freshly baked artisanal bread and handcrafted pastries made with organic
+                            ingredients every morning.</p>
+                        <button class="cta-btn primary">OUR MENU <span class="arrow">↗</span></button>
+                    </div>
+
+                    <!-- Quick Menu List -->
+                    <div class="quick-menu floating-side">
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=100&auto=format&fit=crop"
+                                alt="Sourdough" class="item-icon">
+                            <div class="item-info">
+                                <span class="item-name">Sourdough</span>
+                                <span class="item-desc">Hand-kneaded</span>
+                            </div>
+                            <span class="item-price">$8.50</span>
+                            <button class="add-btn">+</button>
+                        </div>
+                        <div class="menu-item">
+                            <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=100&auto=format&fit=crop"
+                                alt="Cupcake" class="item-icon">
+                            <div class="item-info">
+                                <span class="item-name">Red Velvet</span>
+                                <span class="item-desc">Luxury Cake</span>
+                            </div>
+                            <span class="item-price">$4.50</span>
+                            <button class="add-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal for Real-time Validation -->
+            <div id="orderModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Order Your Treats</h2>
+                    <form id="orderForm" novalidate>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="John Doe" required>
+                            <span class="error-msg" id="nameError">Name must be at least 3 characters.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                            <span class="error-msg" id="emailError">Please enter a valid email.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Select Treat</label>
+                            <select id="product" required>
+                                <option value="">Select a product...</option>
+                                <option value="sourdough">Artisanal Sourdough</option>
+                                <option value="croissant">Golden Croissant</option>
+                                <option value="cake">Luxury Tiered Cake</option>
+                            </select>
+                            <span class="error-msg" id="productError">Please select a treat.</span>
+                        </div>
+                        <button type="submit" class="cta-btn primary full-width">Place Order</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Creations Section -->
+            <section class="creations">
+                <div class="section-header">
+                    <div class="title-group">
+                        <span class="badge">Explore</span>
+                        <h2 class="section-title">Freshly <br> Baked Goods</h2>
+                    </div>
+                    <p class="section-desc">From our ovens to your table, we specialize in high-hydration sourdough and
+                        delicate French pastries.</p>
+                </div>
+
+                <div class="carousel-container">
+                    <button class="carousel-nav prev" aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+                    <div class="carousel">
+                        <div class="product-card" style="--bg-color: #f7f3e9;">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=300&auto=format&fit=crop"
+                                alt="Bread">
+                            <h3>Artisanal Loaf</h3>
+                        </div>
+                        <div class="product-card active" style="--bg-color: #fffaf0;">
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=300&auto=format&fit=crop"
+                                alt="Cake">
+                            <h3>Specialty Cakes</h3>
+                        </div>
+                        <div class="product-card" style="--bg-color: #fff9e6;">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=300&auto=format&fit=crop"
+                                alt="Pastry">
+                            <h3>French Pastries</h3>
+                        </div>
+                    </div>
+                    <button class="carousel-nav next" aria-label="Next"><i data-lucide="chevron-right"></i></button>
+                </div>
+            </section>
+
+            <!-- Promo/Delight Section -->
+            <section class="promo">
+                <div class="promo-content">
+                    <div class="promo-text-bg">
+                        <span class="bg-word">FRESH</span>
+                        <span class="bg-word outline">BAKED!</span>
+                    </div>
+                    <div class="promo-image-main">
+                        <!-- High quality Bakery Basket Image -->
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2072&auto=format&fit=crop"
+                            alt="Bakery Basket">
+                    </div>
+
+                    <div class="promo-info-cards">
+                        <div class="info-card orange">
+                            <h3>OLATEAM</h3>
+                            <p>Premium Bakery & Artisanal Breads</p>
+                            <img src="https://images.unsplash.com/photo-1556210331-09bb098863f9?q=80&w=300&auto=format&fit=crop"
+                                alt="Baker">
+                        </div>
+                        <div class="info-card yellow">
+                            <h3>Everyday</h3>
+                            <p>Stone-milled flour and natural leaven for the perfect crust.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section main">
+                <div class="footer-logo">Olateam Bakery</div>
+                <p class="footer-desc">Crafting the finest artisanal breads and pastries since 1998. Every loaf is a
+                    piece of our family history.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="story.html">Our Story</a></li>
+                    <li><a href="breads.html">Breads</a></li>
+                    <li><a href="cakes.html">Cakes</a></li>
+                    <li><a href="pastries.html">Pastries</a></li>
+                </ul>
+            </div>
+            <div class="footer-section links">
+                <h3 class="footer-title">Account</h3>
+                <ul class="footer-links">
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="#">My Orders</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3 class="footer-title">Visit Us</h3>
+                <p class="footer-desc">123 Bakery Street<br>Flour City, FC 45678</p>
+                <p class="footer-desc" style="margin-top: 15px;">Mon - Sat: 7am - 7pm<br>Sun: 8am - 4pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Olateam Bakery. Handcrafted with love.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
