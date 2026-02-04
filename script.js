@@ -112,30 +112,231 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     };
 
-    // Cart Counter Logic
+    // Shopping Cart System
     const cartBtn = document.querySelector('[aria-label="Cart"]');
-    const addBtns = document.querySelectorAll('.add-btn');
-    let cartCount = 0;
+    const addBtns = document.querySelectorAll('.add-to-cart-btn');
 
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('olateamCart')) || [];
+
+    // Create cart sidebar HTML
+    const cartHTML = `
+        <div class="cart-overlay"></div>
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Basket</h2>
+                <button class="cart-close"><i data-lucide="x"></i></button>
+            </div>
+            <div class="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span class="cart-total-label">Total</span>
+                    <span class="cart-total-amount">$0.00</span>
+                </div>
+                <button class="cta-btn primary full-width">Checkout</button>
+            </div>
+        </div>
+    `;
+
+    // Add cart to DOM
+    document.body.insertAdjacentHTML('beforeend', cartHTML);
+
+    const cartSidebar = document.querySelector('.cart-sidebar');
+    const cartOverlay = document.querySelector('.cart-overlay');
+    const cartClose = document.querySelector('.cart-close');
+    const cartItemsContainer = document.querySelector('.cart-items');
+
+    // Toggle cart
+    if (cartBtn) {
+        cartBtn.onclick = () => {
+            cartSidebar.classList.add('active');
+            cartOverlay.classList.add('active');
+        };
+    }
+
+    cartClose.onclick = () => {
+        cartSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    };
+
+    cartOverlay.onclick = () => {
+        cartSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    };
+
+    // Add to cart functionality
     addBtns.forEach(btn => {
         btn.onclick = () => {
-            cartCount++;
-            updateCartCounter();
-            btn.style.transform = 'scale(1.2)';
-            setTimeout(() => btn.style.transform = 'scale(1)', 200);
+            const item = btn.closest('.collection-item');
+            const productData = {
+                id: Date.now().toString(),
+                name: item.querySelector('.item-name').textContent,
+                price: parseFloat(item.querySelector('.item-price').textContent.replace('$', '')),
+                category: item.querySelector('.category').textContent,
+                image: item.querySelector('img').src,
+                quantity: 1
+            };
+
+            // Check if item already in cart
+            const existingItem = cart.find(i => i.name === productData.name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push(productData);
+            }
+
+            saveCart();
+            renderCart();
+            updateCartBadge();
+
+            // Visual feedback
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="check"></i> Added';
+            btn.style.background = 'var(--accent-sage)';
+            btn.style.color = '#fff';
+            lucide.createIcons();
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'transparent';
+                btn.style.color = 'var(--text-main)';
+                lucide.createIcons();
+            }, 1500);
         };
     });
 
-    function updateCartCounter() {
-        if (!cartBtn) return;
-        let badge = cartBtn.querySelector('.cart-badge');
-        if (!badge) {
-            badge = document.createElement('span');
-            badge.className = 'cart-badge';
-            cartBtn.appendChild(badge);
-        }
-        badge.textContent = cartCount;
+    function saveCart() {
+        localStorage.setItem('olateamCart', JSON.stringify(cart));
     }
+
+    function renderCart() {
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = `
+                <div class="cart-empty">
+                    <i data-lucide="shopping-bag"></i>
+                    <p>Your basket is empty</p>
+                </div>
+            `;
+            lucide.createIcons();
+            updateTotal();
+            return;
+        }
+
+        cartItemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item" data-id="${item.id}">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                <div class="cart-item-details">
+                    <span class="cart-item-category">${item.category}</span>
+                    <h4>${item.name}</h4>
+                    <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                    <div class="cart-item-controls">
+                        <button class="qty-btn minus-btn" data-id="${item.id}">−</button>
+                        <span class="cart-item-qty">${item.quantity}</span>
+                        <button class="qty-btn plus-btn" data-id="${item.id}">+</button>
+                    </div>
+                </div>
+                <div class="cart-item-remove">
+                    <button class="remove-btn" data-id="${item.id}">
+                        <i data-lucide="trash-2"></i>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+
+        lucide.createIcons();
+        attachCartEvents();
+        updateTotal();
+    }
+
+    function attachCartEvents() {
+        // Plus buttons
+        document.querySelectorAll('.plus-btn').forEach(btn => {
+            btn.onclick = () => {
+                const id = btn.dataset.id;
+                const item = cart.find(i => i.id === id);
+                if (item) {
+                    item.quantity++;
+                    saveCart();
+                    renderCart();
+                    updateCartBadge();
+                }
+            };
+        });
+
+        // Minus buttons
+        document.querySelectorAll('.minus-btn').forEach(btn => {
+            btn.onclick = () => {
+                const id = btn.dataset.id;
+                const item = cart.find(i => i.id === id);
+                if (item && item.quantity > 1) {
+                    item.quantity--;
+                    saveCart();
+                    renderCart();
+                    updateCartBadge();
+                }
+            };
+        });
+
+        // Remove buttons
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+            btn.onclick = () => {
+                const id = btn.dataset.id;
+                cart = cart.filter(i => i.id !== id);
+                saveCart();
+                renderCart();
+                updateCartBadge();
+            };
+        });
+    }
+
+    function updateTotal() {
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const totalEl = document.querySelector('.cart-total-amount');
+        if (totalEl) {
+            totalEl.textContent = `$${total.toFixed(2)}`;
+        }
+    }
+
+    function updateCartBadge() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        let badge = cartBtn.querySelector('.cart-badge');
+
+        if (totalItems > 0) {
+            if (!badge) {
+                badge = document.createElement('span');
+                badge.className = 'cart-badge';
+                cartBtn.style.position = 'relative';
+                cartBtn.appendChild(badge);
+            }
+            badge.textContent = totalItems;
+            badge.style.transform = 'scale(1.4)';
+            setTimeout(() => badge.style.transform = 'scale(1)', 200);
+        } else if (badge) {
+            badge.remove();
+        }
+    }
+
+    // Initialize cart on load
+    renderCart();
+    updateCartBadge();
+
+    // Scroll Reveal Reveal Animation
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.collection-item, .phil-text, .phil-visual').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
 
     // Password Toggle Logic
     const toggleBtns = document.querySelectorAll('.toggle-password');

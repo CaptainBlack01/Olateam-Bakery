@@ -4,72 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story | Olateam.com</title>
+    <title>Our Story | Olateam Bakery</title>
     <link rel="stylesheet" href="styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
     <div class="app-container">
         <header class="header">
-            <div class="logo">Olateam.com</div>
+            <a href="index.html" class="logo">Olateam</a>
             <nav class="nav">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="breads.html" class="nav-link">BREADS</a>
-                <a href="cakes.html" class="nav-link">CAKES</a>
-                <a href="pastries.html" class="nav-link">PASTRIES</a>
-                <a href="story.html" class="nav-link active">OUR STORY</a>
-                <a href="login.html" class="nav-link mobile-only">LOGIN</a>
-                <a href="signup.html" class="nav-link mobile-only">SIGN UP</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="breads.html" class="nav-link">Breads</a>
+                <a href="cakes.html" class="nav-link">Cakes</a>
+                <a href="pastries.html" class="nav-link">Pastries</a>
+                <a href="story.html" class="nav-link active">Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
                 <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
                 <button class="icon-btn" aria-label="Cart"><i data-lucide="shopping-bag"></i></button>
                 <div class="auth-actions desktop-only">
-                    <a href="login.html" class="nav-link">Login</a>
-                    <a href="signup.html" class="cta-btn secondary">Sign Up</a>
+                    <a href="login.html" class="cta-btn secondary">Login</a>
                 </div>
             </div>
         </header>
 
         <main>
-            <section class="hero subpage story">
+            <section class="hero" style="min-height: 70vh;">
                 <div class="hero-content">
-                    <h1 class="hero-title small">Born in <br> the Oven</h1>
-                    <p class="hero-text centered">Three generations of bakers, one mission: The Perfect Crust.</p>
+                    <div class="hero-text">
+                        <span class="hero-tagline">Since 1998</span>
+                        <h1 class="hero-title">Born in <br> the Oven</h1>
+                        <p class="hero-subtitle">Three generations of bakers, one unwavering mission: The Perfect Crust.
+                        </p>
+                    </div>
+                    <div class="hero-img-container">
+                        <img src="https://images.unsplash.com/photo-1556210331-09bb098863f9?q=80&w=800"
+                            alt="Baking History" class="hero-img">
+                    </div>
                 </div>
-                <div class="wave-transition"></div>
             </section>
 
-            <section class="story-content">
-                <div class="story-text-container">
-                    <p>At Olateam Bakery, we believe that bread is the soul of every meal. Since 1998, we have been
-                        perfecting the art of long-fermentation and traditional stone-milling. Our journey started in a
-                        small kitchen and has grown into a community of bread lovers.</p>
-                    <img src="https://images.unsplash.com/photo-1556210331-09bb098863f9?q=80&w=800" alt="Baker Story">
+            <section class="philosophy">
+                <div class="philosophy-content">
+                    <div class="phil-text">
+                        <h2 class="serif">Crafted by Hand, <br> Guided by Heart.</h2>
+                        <p>At Olateam Bakery, we believe that bread is the soul of every meal. Since 1998, we have been
+                            perfecting the art of long-fermentation and traditional stone-milling.</p>
+                        <p>Our journey started in a small family kitchen with a single goal: to share the honest, rustic
+                            flavors of our heritage with the world. Today, we continue that legacy, one hand-shaped loaf
+                            at a time.</p>
+                    </div>
+                    <div class="phil-visual">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800"
+                            alt="Our Legacy">
+                    </div>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section main">
-                    <div class="footer-logo">Olateam Bakery</div>
-                    <p class="footer-desc">Three generations of passion for the perfect crust.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="logo">Olateam</h2>
+                    <p>Elevating the daily ritual of bread since 1998.</p>
                 </div>
-                <div class="footer-section links">
-                    <h3 class="footer-title">Visit Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="index.html">Home</a></li>
-                    </ul>
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <a href="breads.html">Breads</a>
+                    <a href="cakes.html">Cakes</a>
+                    <a href="pastries.html">Pastries</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Visit</h4>
+                    <p>123 Bakery Street<br>Flour City, FC 45678</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Olateam Bakery.</p>
+                <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
             </div>
         </footer>
     </div>

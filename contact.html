@@ -6,113 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Olateam Bakery</title>
     <link rel="stylesheet" href="styles.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
     <div class="app-container">
         <header class="header">
-            <div class="logo">Olateam.com</div>
+            <a href="index.html" class="logo">Olateam</a>
             <nav class="nav">
-                <a href="index.html" class="nav-link">HOME</a>
-                <a href="breads.html" class="nav-link">BREADS</a>
-                <a href="cakes.html" class="nav-link">CAKES</a>
-                <a href="pastries.html" class="nav-link">PASTRIES</a>
-                <a href="story.html" class="nav-link">OUR STORY</a>
-                <a href="login.html" class="nav-link mobile-only">LOGIN</a>
-                <a href="signup.html" class="nav-link mobile-only">SIGN UP</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="breads.html" class="nav-link">Breads</a>
+                <a href="cakes.html" class="nav-link">Cakes</a>
+                <a href="pastries.html" class="nav-link">Pastries</a>
+                <a href="story.html" class="nav-link">Story</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
             </nav>
             <div class="header-actions">
                 <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
                 <button class="icon-btn" aria-label="Cart"><i data-lucide="shopping-bag"></i></button>
                 <div class="auth-actions desktop-only">
-                    <a href="login.html" class="nav-link">Login</a>
-                    <a href="signup.html" class="cta-btn secondary">Sign Up</a>
+                    <a href="login.html" class="cta-btn secondary">Login</a>
                 </div>
             </div>
         </header>
 
         <main>
-            <section class="hero subpage contact">
-                <div class="hero-content">
-                    <h1 class="hero-title small">Say Hello</h1>
-                    <p class="hero-text centered">We love hearing from our community. Drop us a line or visit our
-                        bakery.</p>
+            <section class="hero" style="min-height: 50vh;">
+                <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                    <div class="hero-text" style="max-width: 800px; margin: 0 auto;">
+                        <span class="hero-tagline">Get in Touch</span>
+                        <h1 class="hero-title">Say Hello</h1>
+                        <p class="hero-subtitle">We love hearing from our community. Whether it's a special request or
+                            just to say hi, our ovens are always open.</p>
+                    </div>
                 </div>
-                <div class="wave-transition"></div>
             </section>
 
-            <section class="contact-section">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="info-card glass">
-                            <i data-lucide="map-pin"></i>
-                            <h3>Location</h3>
-                            <p>123 Bakery Street, Flour City</p>
-                        </div>
-                        <div class="info-card glass">
-                            <i data-lucide="phone"></i>
-                            <h3>Phone</h3>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                        <div class="info-card glass">
-                            <i data-lucide="mail"></i>
-                            <h3>Email</h3>
-                            <p>hello@olateam.com</p>
-                        </div>
+            <section class="creations" style="padding-top: 50px;">
+                <div class="footer-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: center;">
+                    <div class="footer-brand">
+                        <i data-lucide="map-pin" style="margin-bottom: 20px; color: var(--accent-primary);"></i>
+                        <h4 class="serif">Location</h4>
+                        <p>123 Bakery Street<br>Flour City, FC 45678</p>
                     </div>
+                    <div class="footer-brand">
+                        <i data-lucide="phone" style="margin-bottom: 20px; color: var(--accent-primary);"></i>
+                        <h4 class="serif">Phone</h4>
+                        <p>+1 (555) 123-4567<br>Mon-Sat, 8am-4pm</p>
+                    </div>
+                    <div class="footer-brand">
+                        <i data-lucide="mail" style="margin-bottom: 20px; color: var(--accent-primary);"></i>
+                        <h4 class="serif">Email</h4>
+                        <p>hello@olateam.com<br>Support 24/7</p>
+                    </div>
+                </div>
 
-                    <div class="contact-form-container glass">
-                        <form id="contactForm" class="auth-form">
-                            <div class="form-group floating">
-                                <input type="text" id="name" placeholder=" " required>
-                                <label for="name">Your Name</label>
+                <div class="modal-content"
+                    style="margin: 80px auto; max-width: 800px; transform: none; box-shadow: var(--shadow-soft);">
+                    <h2 class="serif" style="text-align: center; margin-bottom: 40px;">Drop us a line</h2>
+                    <form id="contactForm">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
                             </div>
-                            <div class="form-group floating">
-                                <input type="email" id="email" placeholder=" " required>
-                                <label for="email">Email Address</label>
+                            <div class="form-group">
+                                <input type="email" placeholder="Email Address" required>
                             </div>
-                            <div class="form-group floating">
-                                <textarea id="message" placeholder=" " required
-                                    style="width: 100%; min-height: 150px; background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; color: #fff;"></textarea>
-                                <label for="message" style="top: 25px;">Message</label>
-                            </div>
-                            <button type="submit" class="cta-btn primary full-width">Send Message</button>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required
+                                style="width: 100%; min-height: 150px; padding: 18px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); background: transparent; font-family: var(--font-body); font-size: 1.1rem; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="cta-btn primary full-width">Send Message</button>
+                    </form>
                 </div>
             </section>
         </main>
 
         <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section main">
-                    <div class="footer-logo">Olateam Bakery</div>
-                    <p class="footer-desc">Crafting the finest artisanal breads and pastries since 1998.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="logo">Olateam</h2>
+                    <p>Elevating the daily ritual of bread since 1998.</p>
                 </div>
-                <!-- Simplified footer for subpages -->
-                <div class="footer-section links">
-                    <h3 class="footer-title">Explore</h3>
-                    <ul class="footer-links">
-                        <li><a href="breads.html">Breads</a></li>
-                        <li><a href="cakes.html">Cakes</a></li>
-                        <li><a href="pastries.html">Pastries</a></li>
-                    </ul>
+                <div class="footer-nav">
+                    <h4>Explore</h4>
+                    <a href="breads.html">Breads</a>
+                    <a href="cakes.html">Cakes</a>
+                    <a href="pastries.html">Pastries</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Visit</h4>
+                    <p>123 Bakery Street<br>Flour City, FC 45678</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Olateam Bakery.</p>
+                <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
             </div>
         </footer>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>
