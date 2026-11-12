@@ -5,7 +5,7 @@ const OLATEAM_PRODUCTS = [
         tag: 'Signature',
         collection: 'breads',
         price: 12.0,
-        image: 'https://images.unsplash.com/photo-1585145062877-479b9f2524bb?q=80&w=800',
+        image: 'https://images.pexels.com/photos/28354523/pexels-photo-28354523.jpeg?auto=compress&cs=tinysrgb&w=800',
         description: '48-hour levain, crackling crust, open and tangy crumb.',
         featured: true
     },
@@ -15,7 +15,7 @@ const OLATEAM_PRODUCTS = [
         tag: 'French',
         collection: 'breads',
         price: 6.0,
-        image: 'https://images.unsplash.com/photo-1589367920969-ab8e050bab0e?q=80&w=800',
+        image: 'https://images.pexels.com/photos/30826793/pexels-photo-30826793.jpeg?auto=compress&cs=tinysrgb&w=800',
         description: 'Slender, crisp, and baked twice daily for the perfect snap.',
         featured: false
     },
@@ -135,7 +135,7 @@ const OLATEAM_PRODUCTS = [
         tag: 'Indulgence',
         collection: 'pastries',
         price: 7.0,
-        image: 'https://images.unsplash.com/photo-1551462147-37885acc3c41?q=80&w=800',
+        image: 'https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&w=800',
         description: 'Flaky layers wrapped around two batons of dark chocolate.',
         featured: true
     },
@@ -145,7 +145,7 @@ const OLATEAM_PRODUCTS = [
         tag: 'Gourmet',
         collection: 'pastries',
         price: 8.5,
-        image: 'https://images.unsplash.com/photo-1623334044303-242022143a53?q=80&w=800',
+        image: 'https://images.pexels.com/photos/13439695/pexels-photo-13439695.jpeg?auto=compress&cs=tinysrgb&w=800',
         description: 'Twice-baked with almond cream and toasted flakes.',
         featured: false
     },
