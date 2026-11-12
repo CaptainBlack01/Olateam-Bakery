@@ -4,154 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>French Pastries | Olateam Bakery</title>
+    <title>Pastries | Olateam Bakery</title>
+    <meta name="description" content="French viennoiserie baked fresh each morning at Olateam Bakery — butter croissants, pain au chocolat, almond frangipane, danish, and macarons.">
+    <meta property="og:title" content="Pastries | Olateam Bakery">
+    <meta property="og:description" content="Laminated with French butter and baked fresh each morning.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23241a12'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23fbf8f2' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <div class="app-container">
-        <header class="header">
-            <a href="index.html" class="logo">Olateam</a>
-            <nav class="nav">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                <span class="brand-mark" aria-hidden="true">O</span>
+                <span class="brand-text">Olateam<em>Bakery</em></span>
+            </a>
+            <nav class="nav" id="primaryNav" aria-label="Primary">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="breads.html" class="nav-link">Breads</a>
                 <a href="cakes.html" class="nav-link">Cakes</a>
-                <a href="pastries.html" class="nav-link active">Pastries</a>
-                <a href="story.html" class="nav-link">Story</a>
+                <a href="pastries.html" class="nav-link active" aria-current="page">Pastries</a>
+                <a href="story.html" class="nav-link">Our story</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
-                <button class="icon-btn" aria-label="Cart"><i data-lucide="shopping-bag"></i></button>
-                <div class="auth-actions desktop-only">
-                    <a href="login.html" class="cta-btn secondary">Login</a>
+                <button class="icon-btn" type="button" id="searchBtn" aria-label="Search the bakery">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn" type="button" id="cartBtn" aria-label="Open basket">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" data-cart-count hidden>0</span>
+                </button>
+                <a href="login.html" class="btn btn-secondary btn-sm header-login">Sign in</a>
+                <button class="nav-toggle" type="button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="eyebrow">Viennoiserie</span>
+                    <h1 class="page-hero-title">Golden flakes,<br>French butter.</h1>
+                    <p class="page-hero-lead">Buttery, multi-layered, and best eaten warm. Our pastries are laminated by
+                        hand and baked in small trays each morning — often gone by noon.</p>
+                </div>
+                <div class="page-hero-media">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=900"
+                        alt="Golden butter croissants fresh from the oven" width="900" height="562">
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <section class="hero" style="min-height: 70vh;">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <span class="hero-tagline">Viennoiserie</span>
-                        <h1 class="hero-title">Golden <br> Flakes</h1>
-                        <p class="hero-subtitle">Buttery, multi-layered, and dangerously delicious. Handcrafted using
-                            premium French butter.</p>
-                    </div>
-                    <div class="hero-img-container">
-                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600" alt="Pastries"
-                            class="hero-img">
-                    </div>
+        <section class="section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="filter-chips" data-filter-chips aria-label="Filter pastries"></div>
+                    <select class="sort-select" data-product-sort aria-label="Sort pastries">
+                        <option value="">Sort: featured</option>
+                        <option value="price-asc">Price: low to high</option>
+                        <option value="price-desc">Price: high to low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
                 </div>
-            </section>
+                <div class="product-grid" data-product-grid data-collection="pastries"></div>
+            </div>
+        </section>
 
-            <section class="creations" style="padding-top: 50px;">
-                <div class="collection-grid">
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800"
-                                alt="Butter Croissant">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Classic</span>
-                            <h3 class="item-name">Butter Croissant</h3>
-                            <p class="item-price">$6.50</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1551462147-37885acc3c41?q=80&w=800"
-                                alt="Pain au Chocolat">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Indulgence</span>
-                            <h3 class="item-name">Pain au Chocolat</h3>
-                            <p class="item-price">$7.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1623334044303-242022143a53?q=80&w=800"
-                                alt="Almond Croissant">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Gourmet</span>
-                            <h3 class="item-name">Almond Frangipane</h3>
-                            <p class="item-price">$8.50</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&w=800"
-                                alt="Danish">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Seasonal</span>
-                            <h3 class="item-name">Fruit Danish</h3>
-                            <p class="item-price">$7.50</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800"
-                                alt="Cinnamon Roll">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Warmth</span>
-                            <h3 class="item-name">Cinnamon Braid</h3>
-                            <p class="item-price">$6.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1558326567-98ae2405596b?q=80&w=800"
-                                alt="Macarons">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Petit Fours</span>
-                            <h3 class="item-name">Artist Macarons</h3>
-                            <p class="item-price">$15.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
+        <section class="section section--tint section--tight">
+            <div class="container split">
+                <div class="split-copy">
+                    <span class="eyebrow">Morning ritual</span>
+                    <h2>Come early. Stay a while.</h2>
+                    <p>The first trays leave the oven at 8am, and the counter stays warm until we sell out. Pair a
+                        croissant with a flat white at the window, or take a box home for the people you like best.</p>
+                    <a href="contact.html" class="text-link">Plan your visit <i data-lucide="arrow-right"></i></a>
                 </div>
-            </section>
-        </main>
+                <div class="split-media">
+                    <img src="https://images.unsplash.com/photo-1551462147-37885acc3c41?q=80&w=900"
+                        alt="Pain au chocolat on a bakery counter" width="900" height="720" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <footer class="footer">
+    <footer class="footer">
+        <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h2 class="logo">Olateam</h2>
-                    <p>Elevating the daily ritual of bread since 1998.</p>
+                    <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                        <span class="brand-mark" aria-hidden="true">O</span>
+                        <span class="brand-text">Olateam<em>Bakery</em></span>
+                    </a>
+                    <p>Naturally leavened bread, celebration cakes, and French pastry. Baked by hand in Flour City
+                        since 1998.</p>
                 </div>
-                <div class="footer-nav">
+                <div>
                     <h4>Explore</h4>
-                    <a href="breads.html">Breads</a>
-                    <a href="cakes.html">Cakes</a>
-                    <a href="pastries.html">Pastries</a>
+                    <div class="footer-links">
+                        <a href="breads.html">Breads</a>
+                        <a href="cakes.html">Cakes</a>
+                        <a href="pastries.html">Pastries</a>
+                        <a href="story.html">Our story</a>
+                    </div>
                 </div>
                 <div class="footer-contact">
                     <h4>Visit</h4>
                     <p>123 Bakery Street<br>Flour City, FC 45678</p>
+                    <p>Tue–Sat, 8am–4pm</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Say hello</h4>
+                    <p><a href="mailto:hello@olateam.com">hello@olateam.com</a></p>
+                    <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p><a href="contact.html">Send us a message</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
+                <p><a href="contact.html">Contact</a> · <a href="signup.html">Create an account</a></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
 </body>

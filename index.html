@@ -4,220 +4,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olateam Bakery | Artisanal Excellence</title>
+    <title>Olateam Bakery | Slow-Fermented Bread, Cakes & Pastries</title>
+    <meta name="description" content="Olateam Bakery bakes naturally leavened sourdough, celebration cakes, and French pastries in small batches. Handcrafted with stone-milled flour since 1998.">
+    <meta property="og:title" content="Olateam Bakery | Slow-Fermented Bread & Pastries">
+    <meta property="og:description" content="Wild yeast, stone-ground flour, and time. Reserve fresh bread, cakes, and pastries from Olateam Bakery.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1200">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23241a12'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23fbf8f2' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <div class="app-container">
-        <header class="header">
-            <div class="logo">Olateam</div>
-            <nav class="nav">
-                <a href="index.html" class="nav-link active">Home</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                <span class="brand-mark" aria-hidden="true">O</span>
+                <span class="brand-text">Olateam<em>Bakery</em></span>
+            </a>
+            <nav class="nav" id="primaryNav" aria-label="Primary">
+                <a href="index.html" class="nav-link active" aria-current="page">Home</a>
                 <a href="breads.html" class="nav-link">Breads</a>
                 <a href="cakes.html" class="nav-link">Cakes</a>
                 <a href="pastries.html" class="nav-link">Pastries</a>
-                <a href="story.html" class="nav-link">Story</a>
+                <a href="story.html" class="nav-link">Our story</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
-                <button class="icon-btn" aria-label="Cart">
-                    <i data-lucide="shopping-bag"></i>
+                <button class="icon-btn" type="button" id="searchBtn" aria-label="Search the bakery">
+                    <i data-lucide="search"></i>
                 </button>
-                <div class="auth-actions desktop-only">
-                    <a href="login.html" class="cta-btn secondary">Login</a>
-                </div>
+                <button class="icon-btn" type="button" id="cartBtn" aria-label="Open basket">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" data-cart-count hidden>0</span>
+                </button>
+                <a href="login.html" class="btn btn-secondary btn-sm header-login">Sign in</a>
+                <button class="nav-toggle" type="button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
-        </header>
+        </div>
+    </header>
 
-        <main>
-            <section class="hero active">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <span class="hero-tagline">Handcrafted Since 1998</span>
-                        <h1 class="hero-title">Elevate Your <br> Daily <br> Ritual</h1>
-                        <p class="hero-subtitle">Where ancient grain traditions meet modern artisan craft. Every loaf is
-                            a 48-hour labor of love, naturally leavened and baked to perfection.</p>
-                        <div class="hero-btns">
-                            <button class="cta-btn primary" id="openModal">Reserve a Loaf</button>
-                            <a href="breads.html" class="cta-btn secondary">Explore Collection</a>
-                        </div>
+    <main id="main">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Handcrafted since 1998</span>
+                    <h1 class="hero-title">Bread worth <em>slowing down</em> for.</h1>
+                    <p class="hero-lead">Wild yeast, stone-ground flour, and a little patience. We bake the way our
+                        grandmothers did — slowly, by hand, in small batches.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" type="button" data-open-reservation>
+                            Reserve a loaf
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                        <a href="breads.html" class="btn btn-secondary">Explore the collection</a>
                     </div>
-                    <div class="hero-img-container">
-                        <div class="hero-accent-circle"></div>
+                </div>
+                <div class="hero-media">
+                    <div class="hero-figure">
                         <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=1000"
-                            alt="Freshly baked sourdough" class="hero-img">
+                            alt="Freshly baked sourdough loaves cooling on a rack" width="1000" height="1250">
+                    </div>
+                    <div class="hero-badge">
+                        <strong>48-hour ferment</strong>
+                        <span>Naturally leavened</span>
                     </div>
                 </div>
-            </section>
-
-            <div class="hero-details">
-                <p class="hero-text">Wild yeast, stone-ground flour, and mineral-rich sea salt—our ingredients are
-                    intentionally minimal, allowing the natural complexity of slow fermentation to shine.</p>
             </div>
+        </section>
 
-            <section class="creations">
-                <div class="creations-header">
-                    <h2 class="title serif">The Collection</h2>
-                    <p class="subtitle">High-hydration sourdoughs, buttery viennoiserie, and bespoke celebration
-                        cakes—each crafted with patience and precision.</p>
+        <section class="trust-strip" aria-label="What we stand for">
+            <div class="container trust-grid">
+                <div class="trust-item">
+                    <i data-lucide="clock"></i>
+                    <span><strong>48-hour ferment</strong>Slow, never rushed</span>
                 </div>
-
-                <div class="collection-grid">
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1585145062877-479b9f2524bb?q=80&w=800"
-                                alt="Country Loaf">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Signature</span>
-                            <h3 class="item-name">Country Sourdough</h3>
-                            <p class="item-price">$12.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800"
-                                alt="Cloud Cake">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Celebration</span>
-                            <h3 class="item-name">Velvet Cloud Cake</h3>
-                            <p class="item-price">$45.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800"
-                                alt="Butter Croissant">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Morning</span>
-                            <h3 class="item-name">Butter Croissant</h3>
-                            <p class="item-price">$6.50</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800"
-                                alt="Seeded Loaf">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Artisanal</span>
-                            <h3 class="item-name">Seeded Heritage</h3>
-                            <p class="item-price">$14.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800"
-                                alt="Dark Chocolate Cake">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Decadence</span>
-                            <h3 class="item-name">Truffle Chocolate</h3>
-                            <p class="item-price">$55.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1551462147-37885acc3c41?q=80&w=800"
-                                alt="Pain au Chocolat">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Morning</span>
-                            <h3 class="item-name">Pain au Chocolat</h3>
-                            <p class="item-price">$7.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
+                <div class="trust-item">
+                    <i data-lucide="wheat"></i>
+                    <span><strong>Stone-milled flour</strong>Whole grain, local</span>
                 </div>
-            </section>
-
-            <section class="philosophy">
-                <div class="philosophy-content">
-                    <div class="phil-text">
-                        <h2 class="serif">Slow Fermentation, <br> Deep Connection.</h2>
-                        <p>We respect the time it takes for nature to work its magic. Our 48-hour fermentation process
-                            ensures every bite is a testament to patience, quality, and heritage.</p>
-                        <a href="story.html" class="link-btn">Learn our story <i data-lucide="arrow-right"></i></a>
-                    </div>
-                    <div class="phil-visual">
-                        <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=800"
-                            alt="Baking Process">
-                    </div>
+                <div class="trust-item">
+                    <i data-lucide="sun"></i>
+                    <span><strong>Baked daily</strong>From 6am, Tue–Sat</span>
                 </div>
-            </section>
-        </main>
+                <div class="trust-item">
+                    <i data-lucide="heart-handshake"></i>
+                    <span><strong>Small batch</strong>Made by human hands</span>
+                </div>
+            </div>
+        </section>
 
-        <footer class="footer">
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">The collection</span>
+                    <h2>Fresh from the oven</h2>
+                    <p>High-hydration sourdoughs, buttery viennoiserie, and celebration cakes — each made with time,
+                        care, and very good butter.</p>
+                </div>
+                <div class="product-grid" data-product-grid data-featured="true" data-limit="6"></div>
+                <div style="margin-top: 2.5rem; text-align: center;">
+                    <a href="breads.html" class="text-link">Browse the full collection <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--tint">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow">How we bake</span>
+                    <h2>Three days. Three ingredients.</h2>
+                    <p>Flour, water, salt — and a starter we have kept alive for more than twenty years. Everything
+                        else is just time and heat.</p>
+                </div>
+                <div class="process-grid">
+                    <article class="process-card">
+                        <span class="process-step">01</span>
+                        <h3>Feed the starter</h3>
+                        <p>Our wild levain is refreshed twice a day, building the acidity and lift that give each loaf
+                            its character.</p>
+                    </article>
+                    <article class="process-card">
+                        <span class="process-step">02</span>
+                        <h3>Fold &amp; rest</h3>
+                        <p>Dough is hand-folded and rested for two days. No shortcuts, no commercial yeast, no rush.</p>
+                    </article>
+                    <article class="process-card">
+                        <span class="process-step">03</span>
+                        <h3>Bake in stone</h3>
+                        <p>Heated stone decks and steam give a deep, caramelised crust and an open, custardy crumb.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container split">
+                <div class="split-media">
+                    <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=900"
+                        alt="Baker shaping dough by hand" width="900" height="720" loading="lazy">
+                </div>
+                <div class="split-copy">
+                    <span class="eyebrow">Our philosophy</span>
+                    <h2>Slow fermentation, deeper flavour.</h2>
+                    <p>We believe good bread cannot be hurried. Our 48-hour fermentation lets the grain do the talking,
+                        breaking down starches and building a flavour that is complex, digestible, and quietly
+                        remarkable.</p>
+                    <p>It takes longer. It costs more. We would not have it any other way.</p>
+                    <a href="story.html" class="text-link">Read our story <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-band">
+            <div class="container">
+                <blockquote>“Bread is not a product. It is a practice — a daily reminder that the best things take
+                    time.”</blockquote>
+                <cite>The Olateam kitchen</cite>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="newsletter">
+                    <div>
+                        <span class="eyebrow">Fresh news</span>
+                        <h2>What's baking this week</h2>
+                        <p>Seasonal specials, new pastries, and the occasional recipe. One email a month, no more.</p>
+                    </div>
+                    <form class="newsletter-form" data-newsletter novalidate>
+                        <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
+                        <button class="btn btn-primary" type="submit">Join the list</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h2 class="logo">Olateam</h2>
-                    <p>Elevating the daily ritual of bread since 1998. Handcrafted with ancient techniques and modern
-                        love.</p>
+                    <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                        <span class="brand-mark" aria-hidden="true">O</span>
+                        <span class="brand-text">Olateam<em>Bakery</em></span>
+                    </a>
+                    <p>Naturally leavened bread, celebration cakes, and French pastry. Baked by hand in Flour City
+                        since 1998.</p>
                 </div>
-                <div class="footer-nav">
+                <div>
                     <h4>Explore</h4>
-                    <a href="breads.html">Breads</a>
-                    <a href="cakes.html">Cakes</a>
-                    <a href="pastries.html">Pastries</a>
-                    <a href="story.html">Story</a>
+                    <div class="footer-links">
+                        <a href="breads.html">Breads</a>
+                        <a href="cakes.html">Cakes</a>
+                        <a href="pastries.html">Pastries</a>
+                        <a href="story.html">Our story</a>
+                    </div>
                 </div>
                 <div class="footer-contact">
                     <h4>Visit</h4>
                     <p>123 Bakery Street<br>Flour City, FC 45678</p>
-                    <p>Tue - Sat: 8am - 4pm</p>
+                    <p>Tue–Sat, 8am–4pm</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Say hello</h4>
+                    <p><a href="mailto:hello@olateam.com">hello@olateam.com</a></p>
+                    <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p><a href="contact.html">Send us a message</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
+                <p><a href="contact.html">Contact</a> · <a href="signup.html">Create an account</a></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
-    <!-- Modal for Reservations -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <button class="close-btn"><i data-lucide="x"></i></button>
-            <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 40px;">Request a Loaf</h2>
-            <form id="orderForm">
-                <div class="form-group">
-                    <input type="text" id="fullName" placeholder="Your Name" required>
+    <div class="modal" id="orderModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reserveTitle">
+        <div class="modal-card">
+            <button class="icon-btn modal-close" type="button" data-modal-close aria-label="Close reservation">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-head">
+                <span class="eyebrow">Reserve a loaf</span>
+                <h2 id="reserveTitle">Save your favourite</h2>
+                <p>Tell us what you would like and we will bake it for collection. We will confirm by email.</p>
+            </div>
+            <form id="orderForm" novalidate>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="reserveName">Full name</label>
+                        <input type="text" id="reserveName" name="name" autocomplete="name" required>
+                        <span class="field-error">Please enter your name.</span>
+                    </div>
+                    <div class="field">
+                        <label for="reserveEmail">Email</label>
+                        <input type="email" id="reserveEmail" name="email" autocomplete="email" required>
+                        <span class="field-error">Please enter a valid email.</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Email Address" required>
+                <div class="field">
+                    <label for="reserveProduct">What would you like?</label>
+                    <select id="reserveProduct" name="product" required></select>
+                    <span class="field-error">Please choose a loaf.</span>
                 </div>
-                <div class="form-group">
-                    <select id="product" required>
-                        <option value="">Select a treat...</option>
-                        <option value="sourdough">Country Sourdough</option>
-                        <option value="cake">Velvet Cloud Cake</option>
-                        <option value="croissant">Butter Croissant</option>
-                    </select>
-                </div>
-                <button type="submit" class="cta-btn primary full-width">Send Request</button>
+                <button class="btn btn-primary btn-block" type="submit">Send reservation</button>
             </form>
         </div>
     </div>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>

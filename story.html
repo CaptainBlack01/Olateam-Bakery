@@ -5,88 +5,202 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Story | Olateam Bakery</title>
+    <meta name="description" content="Three generations of bakers, one stubborn belief: good bread takes time. The story of Olateam Bakery, baking by hand in Flour City since 1998.">
+    <meta property="og:title" content="Our Story | Olateam Bakery">
+    <meta property="og:description" content="Three generations of bakers, one stubborn belief: good bread takes time.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23241a12'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23fbf8f2' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <div class="app-container">
-        <header class="header">
-            <a href="index.html" class="logo">Olateam</a>
-            <nav class="nav">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                <span class="brand-mark" aria-hidden="true">O</span>
+                <span class="brand-text">Olateam<em>Bakery</em></span>
+            </a>
+            <nav class="nav" id="primaryNav" aria-label="Primary">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="breads.html" class="nav-link">Breads</a>
                 <a href="cakes.html" class="nav-link">Cakes</a>
                 <a href="pastries.html" class="nav-link">Pastries</a>
-                <a href="story.html" class="nav-link active">Story</a>
+                <a href="story.html" class="nav-link active" aria-current="page">Our story</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
-                <button class="icon-btn" aria-label="Cart"><i data-lucide="shopping-bag"></i></button>
-                <div class="auth-actions desktop-only">
-                    <a href="login.html" class="cta-btn secondary">Login</a>
+                <button class="icon-btn" type="button" id="searchBtn" aria-label="Search the bakery">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn" type="button" id="cartBtn" aria-label="Open basket">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" data-cart-count hidden>0</span>
+                </button>
+                <a href="login.html" class="btn btn-secondary btn-sm header-login">Sign in</a>
+                <button class="nav-toggle" type="button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="eyebrow">Since 1998</span>
+                    <h1 class="page-hero-title">Born in<br>the oven.</h1>
+                    <p class="page-hero-lead">Three generations of bakers, one stubborn belief: good bread takes time,
+                        and the best things are made by hand.</p>
+                </div>
+                <div class="page-hero-media">
+                    <img src="https://images.unsplash.com/photo-1556210331-09bb098863f9?q=80&w=900"
+                        alt="Historic bakery interior with wooden shelves" width="900" height="562">
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <section class="hero" style="min-height: 70vh;">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <span class="hero-tagline">Since 1998</span>
-                        <h1 class="hero-title">Born in <br> the Oven</h1>
-                        <p class="hero-subtitle">Three generations of bakers, one unwavering mission: The Perfect Crust.
-                        </p>
+        <section class="section">
+            <div class="container split">
+                <div class="split-media">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=900"
+                        alt="Loaves of sourdough resting on a wooden bench" width="900" height="720" loading="lazy">
+                </div>
+                <div class="split-copy">
+                    <span class="eyebrow">Our beginning</span>
+                    <h2>Crafted by hand, guided by heart.</h2>
+                    <p>Olateam began in a small family kitchen with one oven, a dented mixing bowl, and a starter kept
+                        alive in a jam jar. We sold our first loaves to neighbours on a Saturday morning and were sold
+                        out by nine.</p>
+                    <p>Almost thirty years later, very little has changed. We still mix by hand, still shape every
+                        loaf ourselves, and still believe that bread is the soul of the table.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--tint">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow">The journey</span>
+                    <h2>A few milestones</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-year">1998</span>
+                        <h3>The first oven</h3>
+                        <p>Olateam opens as a two-person kitchen, baking four loaves at a time for the neighbourhood.</p>
                     </div>
-                    <div class="hero-img-container">
-                        <img src="https://images.unsplash.com/photo-1556210331-09bb098863f9?q=80&w=800"
-                            alt="Baking History" class="hero-img">
+                    <div class="timeline-item">
+                        <span class="timeline-year">2004</span>
+                        <h3>The starter</h3>
+                        <p>Our wild levain is born. We have fed it every day since, and it still leavens every loaf.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2012</span>
+                        <h3>The bakery</h3>
+                        <p>We move into our current home on Bakery Street and add a stone deck oven and pastry bench.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-year">2026</span>
+                        <h3>Today</h3>
+                        <p>The next generation is at the bench, baking the same recipes with a few new ideas.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="philosophy">
-                <div class="philosophy-content">
-                    <div class="phil-text">
-                        <h2 class="serif">Crafted by Hand, <br> Guided by Heart.</h2>
-                        <p>At Olateam Bakery, we believe that bread is the soul of every meal. Since 1998, we have been
-                            perfecting the art of long-fermentation and traditional stone-milling.</p>
-                        <p>Our journey started in a small family kitchen with a single goal: to share the honest, rustic
-                            flavors of our heritage with the world. Today, we continue that legacy, one hand-shaped loaf
-                            at a time.</p>
-                    </div>
-                    <div class="phil-visual">
-                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800"
-                            alt="Our Legacy">
-                    </div>
+        <section class="section">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow">What we value</span>
+                    <h2>Three things we will not compromise</h2>
                 </div>
-            </section>
-        </main>
+                <div class="value-grid">
+                    <article class="value-card">
+                        <i data-lucide="hourglass"></i>
+                        <h3>Patience</h3>
+                        <p>Fermentation cannot be faked. We give every dough the time it asks for, even when it makes
+                            the day longer.</p>
+                    </article>
+                    <article class="value-card">
+                        <i data-lucide="map-pin"></i>
+                        <h3>Provenance</h3>
+                        <p>We buy flour from mills we can visit and butter from farms we know. Good bread starts before
+                            the mixing bowl.</p>
+                    </article>
+                    <article class="value-card">
+                        <i data-lucide="hand-heart"></i>
+                        <h3>Generosity</h3>
+                        <p>The end of the day's bread goes to neighbours and local kitchens, because food is better
+                            shared.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-        <footer class="footer">
+        <section class="quote-band">
+            <div class="container">
+                <blockquote>“We are not trying to make the cheapest loaf. We are trying to make the one you think
+                    about on the way home.”</blockquote>
+                <cite>Mara Olateam, head baker</cite>
+            </div>
+        </section>
+
+        <section class="section section--tight">
+            <div class="container" style="text-align: center;">
+                <h2 class="serif" style="font-size: var(--fs-h2);">Come taste the story.</h2>
+                <p class="muted" style="max-width: 46ch; margin: 0.9rem auto 1.75rem;">Every loaf, cake, and pastry is
+                    made here on Bakery Street. Browse the collection, or stop by and say hello.</p>
+                <a href="breads.html" class="btn btn-primary">Explore the collection</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h2 class="logo">Olateam</h2>
-                    <p>Elevating the daily ritual of bread since 1998.</p>
+                    <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                        <span class="brand-mark" aria-hidden="true">O</span>
+                        <span class="brand-text">Olateam<em>Bakery</em></span>
+                    </a>
+                    <p>Naturally leavened bread, celebration cakes, and French pastry. Baked by hand in Flour City
+                        since 1998.</p>
                 </div>
-                <div class="footer-nav">
+                <div>
                     <h4>Explore</h4>
-                    <a href="breads.html">Breads</a>
-                    <a href="cakes.html">Cakes</a>
-                    <a href="pastries.html">Pastries</a>
+                    <div class="footer-links">
+                        <a href="breads.html">Breads</a>
+                        <a href="cakes.html">Cakes</a>
+                        <a href="pastries.html">Pastries</a>
+                        <a href="story.html">Our story</a>
+                    </div>
                 </div>
                 <div class="footer-contact">
                     <h4>Visit</h4>
                     <p>123 Bakery Street<br>Flour City, FC 45678</p>
+                    <p>Tue–Sat, 8am–4pm</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Say hello</h4>
+                    <p><a href="mailto:hello@olateam.com">hello@olateam.com</a></p>
+                    <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p><a href="contact.html">Send us a message</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
+                <p><a href="contact.html">Contact</a> · <a href="signup.html">Create an account</a></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
 </body>

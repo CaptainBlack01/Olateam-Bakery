@@ -4,98 +4,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Olateam Bakery</title>
+    <title>Create Account | Olateam Bakery</title>
+    <meta name="description" content="Create an Olateam Bakery account to reserve bread, save favourites, and hear about seasonal bakes first.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23241a12'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23fbf8f2' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <div class="app-container">
-        <header class="header">
-            <a href="index.html" class="logo">Olateam</a>
-            <nav class="nav">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                <span class="brand-mark" aria-hidden="true">O</span>
+                <span class="brand-text">Olateam<em>Bakery</em></span>
+            </a>
+            <nav class="nav" id="primaryNav" aria-label="Primary">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="breads.html" class="nav-link">Breads</a>
                 <a href="cakes.html" class="nav-link">Cakes</a>
                 <a href="pastries.html" class="nav-link">Pastries</a>
-                <a href="story.html" class="nav-link">Story</a>
+                <a href="story.html" class="nav-link">Our story</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
-                <button class="icon-btn" aria-label="Cart"><i data-lucide="shopping-bag"></i></button>
-                <div class="auth-actions desktop-only">
-                    <a href="login.html" class="cta-btn secondary">Login</a>
+                <button class="icon-btn" type="button" id="searchBtn" aria-label="Search the bakery">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn" type="button" id="cartBtn" aria-label="Open basket">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" data-cart-count hidden>0</span>
+                </button>
+                <a href="login.html" class="btn btn-secondary btn-sm header-login">Sign in</a>
+                <button class="nav-toggle" type="button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="auth-shell">
+            <aside class="auth-aside">
+                <span class="eyebrow">Join the table</span>
+                <h2>Good things, baked slowly.</h2>
+                <p>Create an account to reserve loaves, save favourites, and get first word on seasonal specials. No
+                    spam, just bread.</p>
+            </aside>
+
+            <div class="auth-main">
+                <div class="auth-card">
+                    <div class="auth-head">
+                        <h1>Create your account</h1>
+                        <p>It takes less time than the sourdough does.</p>
+                    </div>
+
+                    <form id="signupForm" novalidate>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="firstName">First name</label>
+                                <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+                                <span class="field-error">Please enter your first name.</span>
+                            </div>
+                            <div class="field">
+                                <label for="lastName">Last name</label>
+                                <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
+                                <span class="field-error">Please enter your last name.</span>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                            <span class="field-error">Please enter a valid email address.</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="signupPassword">Password</label>
+                            <div class="password-wrap">
+                                <input type="password" id="signupPassword" name="password" autocomplete="new-password" required>
+                                <button type="button" class="password-toggle" data-password-toggle aria-label="Show password">
+                                    <i data-lucide="eye"></i>
+                                </button>
+                            </div>
+                            <div class="strength">
+                                <div class="strength-track"><span data-strength-bar></span></div>
+                                <p class="strength-label" data-strength-label>Password strength</p>
+                            </div>
+                            <span class="field-error">Use at least 8 characters.</span>
+                        </div>
+
+                        <div class="field">
+                            <label class="check-row">
+                                <input type="checkbox" name="terms" required>
+                                <span>I agree to the bakery's order and privacy terms.</span>
+                            </label>
+                            <span class="field-error">Please accept the terms to continue.</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Create account</button>
+                    </form>
+
+                    <p class="auth-alt">Already have an account? <a href="login.html">Sign in</a></p>
                 </div>
             </div>
-        </header>
+        </div>
+    </main>
 
-        <main class="auth-main" style="padding-top: 200px; background-color: var(--secondary-bg); min-height: 100vh;">
-            <div class="modal-content" style="max-width: 500px; transform: none; box-shadow: var(--shadow-soft);">
-                <div class="auth-header" style="text-align: center; margin-bottom: 40px;">
-                    <h1 class="serif">Join the Bakery</h1>
-                    <p>Start your journey with our freshly baked treats</p>
-                </div>
-
-                <form id="signupForm" class="auth-form" novalidate>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="form-group">
-                            <input type="text" id="firstName" placeholder="First Name" required
-                                style="width: 100%; padding: 18px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); background: transparent; font-family: var(--font-body); font-size: 1.1rem;">
-                            <span class="error-msg">Required.</span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="lastName" placeholder="Last Name" required
-                                style="width: 100%; padding: 18px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); background: transparent; font-family: var(--font-body); font-size: 1.1rem;">
-                            <span class="error-msg">Required.</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Email Address" required
-                            style="width: 100%; padding: 18px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); background: transparent; font-family: var(--font-body); font-size: 1.1rem;">
-                        <span class="error-msg">Please enter a valid email.</span>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="password-wrapper" style="position: relative;">
-                            <input type="password" id="password" placeholder="Create Password" required
-                                style="width: 100%; padding: 18px 0; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); background: transparent; font-family: var(--font-body); font-size: 1.1rem;">
-                            <button type="button" class="toggle-password"
-                                style="position: absolute; right: 0; top: 18px; background: none; border: none; cursor: pointer; color: var(--text-muted);"
-                                aria-label="Toggle password visibility">
-                                <i data-lucide="eye"></i>
-                            </button>
-                        </div>
-                        <div class="password-strength" style="margin-top: 10px;">
-                            <div class="strength-bar" style="height: 4px; background: #eee; border-radius: 2px;"></div>
-                            <span class="strength-text" style="font-size: 0.8rem; color: var(--text-muted);">Password
-                                Strength</span>
-                        </div>
-                        <span class="error-msg">Must be 8+ chars with a number.</span>
-                    </div>
-
-                    <div class="form-options" style="margin: 20px 0 40px;">
-                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                            <input type="checkbox" required style="accent-color: var(--accent-primary);">
-                            <span>I agree to the <a href="#"
-                                    style="color: var(--accent-primary); text-decoration: none;">Terms &
-                                    Conditions</a></span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="cta-btn primary full-width">Create Account</button>
-                </form>
-
-                <div class="auth-footer" style="text-align: center; margin-top: 30px;">
-                    <p>Already have an account? <a href="login.html"
-                            style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">Login
-                            here</a></p>
-                </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border: none; padding-top: 0;">
+                <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
+                <p><a href="contact.html">Contact</a> · <a href="story.html">Our story</a></p>
             </div>
-        </main>
-    </div>
+        </div>
+    </footer>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
 </body>

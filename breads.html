@@ -4,154 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artisanal Breads | Olateam Bakery</title>
+    <title>Breads | Olateam Bakery</title>
+    <meta name="description" content="Naturally leavened sourdough, baguettes, rye, focaccia, and brioche — baked by hand in small batches at Olateam Bakery.">
+    <meta property="og:title" content="Breads | Olateam Bakery">
+    <meta property="og:description" content="Slow-fermented breads with stone-milled flour and a 48-hour levain.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23241a12'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' fill='%23fbf8f2' text-anchor='middle'%3EO%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <div class="app-container">
-        <header class="header">
-            <a href="index.html" class="logo">Olateam</a>
-            <nav class="nav">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                <span class="brand-mark" aria-hidden="true">O</span>
+                <span class="brand-text">Olateam<em>Bakery</em></span>
+            </a>
+            <nav class="nav" id="primaryNav" aria-label="Primary">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="breads.html" class="nav-link active">Breads</a>
+                <a href="breads.html" class="nav-link active" aria-current="page">Breads</a>
                 <a href="cakes.html" class="nav-link">Cakes</a>
                 <a href="pastries.html" class="nav-link">Pastries</a>
-                <a href="story.html" class="nav-link">Story</a>
+                <a href="story.html" class="nav-link">Our story</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <button class="icon-btn" aria-label="Search"><i data-lucide="search"></i></button>
-                <button class="icon-btn" aria-label="Cart"><i data-lucide="shopping-bag"></i></button>
-                <div class="auth-actions desktop-only">
-                    <a href="login.html" class="cta-btn secondary">Login</a>
+                <button class="icon-btn" type="button" id="searchBtn" aria-label="Search the bakery">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn" type="button" id="cartBtn" aria-label="Open basket">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-count" data-cart-count hidden>0</span>
+                </button>
+                <a href="login.html" class="btn btn-secondary btn-sm header-login">Sign in</a>
+                <button class="nav-toggle" type="button" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-hero">
+            <div class="container page-hero-grid">
+                <div>
+                    <span class="eyebrow">The bread collection</span>
+                    <h1 class="page-hero-title">Golden crust,<br>open crumb.</h1>
+                    <p class="page-hero-lead">Hand-shaped heritage grains, naturally leavened over 48 hours. Each loaf
+                        carries the patience of a slow kitchen and the character of good flour.</p>
+                </div>
+                <div class="page-hero-media">
+                    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=900"
+                        alt="A selection of freshly baked artisan loaves" width="900" height="562">
                 </div>
             </div>
-        </header>
+        </section>
 
-        <main>
-            <section class="hero" style="min-height: 70vh;">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <span class="hero-tagline">The Bread Collection</span>
-                        <h1 class="hero-title">Golden <br> Crust</h1>
-                        <p class="hero-subtitle">Hand-shaped heritage grains, naturally leavened over 48 hours. Each
-                            loaf carries the essence of time-honored baking traditions.</p>
-                    </div>
-                    <div class="hero-img-container">
-                        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?q=80&w=600" alt="Loaves"
-                            class="hero-img">
-                    </div>
+        <section class="section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="filter-chips" data-filter-chips aria-label="Filter breads"></div>
+                    <select class="sort-select" data-product-sort aria-label="Sort breads">
+                        <option value="">Sort: featured</option>
+                        <option value="price-asc">Price: low to high</option>
+                        <option value="price-desc">Price: high to low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
                 </div>
-            </section>
+                <div class="product-grid" data-product-grid data-collection="breads"></div>
+            </div>
+        </section>
 
-            <section class="creations" style="padding-top: 50px;">
-                <div class="collection-grid">
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1585145062877-479b9f2524bb?q=80&w=800"
-                                alt="Country Sourdough">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Signature</span>
-                            <h3 class="item-name">Country Sourdough</h3>
-                            <p class="item-price">$12.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bab0e?q=80&w=800"
-                                alt="Baguette">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">French</span>
-                            <h3 class="item-name">Heritage Baguette</h3>
-                            <p class="item-price">$6.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800"
-                                alt="Rye">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Dark</span>
-                            <h3 class="item-name">Midnight Rye</h3>
-                            <p class="item-price">$9.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800"
-                                alt="Focaccia">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Italian</span>
-                            <h3 class="item-name">Sea Salt Focaccia</h3>
-                            <p class="item-price">$10.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?q=80&w=800"
-                                alt="Ciabatta">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Rustic</span>
-                            <h3 class="item-name">Olive Ciabatta</h3>
-                            <p class="item-price">$8.50</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
-
-                    <div class="collection-item">
-                        <div class="item-visual">
-                            <img src="https://images.unsplash.com/photo-1559811814-e2c57b5e69df?q=80&w=800"
-                                alt="Brioche">
-                        </div>
-                        <div class="item-meta">
-                            <span class="category">Enriched</span>
-                            <h3 class="item-name">Golden Brioche</h3>
-                            <p class="item-price">$11.00</p>
-                            <button class="add-to-cart-btn"><i data-lucide="plus"></i> Add to basket</button>
-                        </div>
-                    </div>
+        <section class="section section--tint section--tight">
+            <div class="container split">
+                <div class="split-copy">
+                    <span class="eyebrow">Good to know</span>
+                    <h2>Whole loaves last three days.</h2>
+                    <p>Keep your loaf cut-side down at room temperature. To bring back the crust, splash the surface
+                        with water and warm it at 200°C for five minutes. Sliced loaves freeze beautifully for up to a
+                        month.</p>
                 </div>
-            </section>
-        </main>
+                <div class="split-media">
+                    <img src="https://images.unsplash.com/photo-1585145062877-479b9f2524bb?q=80&w=900"
+                        alt="Close-up of a sourdough crust" width="900" height="720" loading="lazy">
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <footer class="footer">
+    <footer class="footer">
+        <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h2 class="logo">Olateam</h2>
-                    <p>Elevating the daily ritual of bread since 1998.</p>
+                    <a href="index.html" class="brand" aria-label="Olateam Bakery home">
+                        <span class="brand-mark" aria-hidden="true">O</span>
+                        <span class="brand-text">Olateam<em>Bakery</em></span>
+                    </a>
+                    <p>Naturally leavened bread, celebration cakes, and French pastry. Baked by hand in Flour City
+                        since 1998.</p>
                 </div>
-                <div class="footer-nav">
+                <div>
                     <h4>Explore</h4>
-                    <a href="breads.html">Breads</a>
-                    <a href="cakes.html">Cakes</a>
-                    <a href="pastries.html">Pastries</a>
+                    <div class="footer-links">
+                        <a href="breads.html">Breads</a>
+                        <a href="cakes.html">Cakes</a>
+                        <a href="pastries.html">Pastries</a>
+                        <a href="story.html">Our story</a>
+                    </div>
                 </div>
                 <div class="footer-contact">
                     <h4>Visit</h4>
                     <p>123 Bakery Street<br>Flour City, FC 45678</p>
+                    <p>Tue–Sat, 8am–4pm</p>
+                </div>
+                <div class="footer-contact">
+                    <h4>Say hello</h4>
+                    <p><a href="mailto:hello@olateam.com">hello@olateam.com</a></p>
+                    <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                    <p><a href="contact.html">Send us a message</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Olateam Bakery. All rights reserved.</p>
+                <p><a href="contact.html">Contact</a> · <a href="signup.html">Create an account</a></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
+    <script src="products.js"></script>
     <script src="script.js"></script>
     <script>lucide.createIcons();</script>
 </body>

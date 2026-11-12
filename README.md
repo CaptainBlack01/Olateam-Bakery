@@ -1,42 +1,68 @@
-# Olateam Bakery Website
+# Olateam Bakery
 
-A premium, high-performance artisanal bakery website featuring a modern design system, seamless navigation, and a robust authentication flow.
+A warm, editorial-style bakery website built with plain HTML, CSS, and JavaScript. Browse the catalogue, filter by collection, search the bakery, build a basket, and place a demo pickup order.
 
-## 🚀 Features
+## Pages
 
-- **Premium Design System**: Glassmorphic UI elements, smooth entrance animations, and a cohesive dark/light harmony.
-- **Modern Auth Suite**: 
-  - **Login & Signup**: Beautifully designed forms with real-time field validation.
-  - **Password Security**: Interactive strength meter and visibility toggle.
-- **Product Carousel**: Fully functional, touch-friendly product slider on the homepage.
-- **Mobile First**: Handcrafted mobile navigation with a smooth side menu.
-- **Interactive Forms**: Real-time validation for orders, contacts, and authentication.
-- **Cart System**: Live cart counter with micro-animations on item addition.
-- **Comprehensive Pages**:
-  - `index.html` (Home)
-  - `breads.html`, `cakes.html`, `pastries.html` (Shop Sections)
-  - `story.html` (About)
-  - `contact.html` (Contact)
-  - `login.html`, `signup.html` (Auth)
+| File | Purpose |
+| --- | --- |
+| `index.html` | Home, featured bakes, reservation form |
+| `breads.html` | Bread catalogue with filters and sorting |
+| `cakes.html` | Cake catalogue with filters and sorting |
+| `pastries.html` | Pastry catalogue with filters and sorting |
+| `story.html` | Bakery story, timeline, and values |
+| `contact.html` | Contact details and message form |
+| `login.html` | Demo sign-in form |
+| `signup.html` | Demo account form with password strength meter |
 
-## 🛠️ Technologies
+## Features
 
-- **Structure**: HTML5 Semantic Elements
-- **Styling**: Vanilla CSS3 (Custom Properties, Flexbox, Grid, Animations)
-- **Logic**: Vanilla JavaScript (ES6+, DOM Manipulation, LocalStorage potential)
-- **Icons**: Lucide Icons
+- Shared product catalogue in `products.js` (18 bakes) powering category grids, search, and the basket.
+- Category filters and sorting generated from the catalogue.
+- Basket stored in `localStorage` (`olateamCartV2`) with quantity limits.
+- Demo checkout with customer details, pickup slot, confirmation state, and automatic basket clearing. No payment is taken.
+- Live search overlay across all products, linking back to catalogue cards.
+- Reservation, contact, newsletter, login, and signup forms with inline validation and toast feedback.
+- Responsive layout with a mobile navigation drawer and off-canvas basket.
+- Keyboard support: focus trapping in overlays, Escape to close, skip link, visible focus states, and reduced-motion support.
 
-## 🔒 Security Audited
+## Demo Behavior
 
-- **Input Sanitization**: Front-end sanitization logic to prevent basic injection attacks.
-- **Secure Auth Patterns**: Email regex validation, password complexity requirements, and non-sensitive error messaging.
-- **Accessibility**: ARIA labels and semantic roles used throughout the site.
+This is a front-end demo. There is no backend, payment provider, or real authentication. Form submissions display confirmation messages, and the basket persists locally in the browser. Demo login and signup redirect to the home page after validation.
 
-## 📦 Setup
+## Project Structure
 
-1. Clone or download the repository.
-2. Open `index.html` in any modern web browser.
-3. No build step or dependencies required (uses CDN for Lucide icons).
+```text
+index.html
+breads.html
+cakes.html
+pastries.html
+story.html
+contact.html
+login.html
+signup.html
+products.js    Shared product catalogue and collection map
+script.js      Cart, checkout, search, navigation, forms, and UI behavior
+styles.css     Design tokens, components, and responsive layout
+```
 
----
-*Crafted with passion for Olateam Bakery.*
+## Setup
+
+1. Download or clone the project.
+2. Open `index.html` in a modern browser.
+
+No build step or package installation is required. For the most reliable `localStorage` behavior, serve the folder with any static file server instead of opening files directly, for example:
+
+```powershell
+python -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Dependencies
+
+- [Lucide](https://unpkg.com/lucide@latest) for icons (CDN)
+- Google Fonts: Playfair Display and Inter
+- Unsplash images
+
+An internet connection is needed for the CDN assets and photography. All layout and behavior otherwise runs locally.
